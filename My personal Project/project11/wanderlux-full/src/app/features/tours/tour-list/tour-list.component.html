@@ -1,0 +1,39 @@
+<div class="page">
+  <div class="page-head section">
+    <div class="section-tag">All Packages</div>
+    <h1 class="section-title">Explore <em>Destinations</em></h1>
+  </div>
+  <div class="layout">
+    <aside class="filters">
+      <h3>Filter Tours</h3>
+      <div class="fg">
+        <label class="form-label">Category</label>
+        <div class="cat-list">
+          <button *ngFor="let c of categories" [class.active]="active===c" (click)="setCategory(c)">{{ c }}</button>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="form-label">Sort By</label>
+        <select class="form-input" [(ngModel)]="sortBy" (change)="load()">
+          <option value="newest">Newest</option>
+          <option value="price_asc">Price: Low → High</option>
+          <option value="price_desc">Price: High → Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label class="form-label">Max Price: ${{ maxPrice }}</label>
+        <input type="range" min="500" max="10000" step="100" [(ngModel)]="maxPrice" (change)="load()">
+      </div>
+    </aside>
+    <div class="main">
+      <app-loader [show]="isLoading"></app-loader>
+      <div class="tours-grid" *ngIf="!isLoading">
+        <app-tour-card *ngFor="let t of tours" [tour]="t"></app-tour-card>
+      </div>
+      <div class="empty" *ngIf="!isLoading && tours.length===0">
+        <p>No tours found. Try adjusting your filters.</p>
+      </div>
+    </div>
+  </div>
+</div>

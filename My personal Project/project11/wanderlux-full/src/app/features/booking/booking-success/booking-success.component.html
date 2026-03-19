@@ -1,0 +1,11 @@
+<div class="success section" style="text-align:center;padding-top:160px;min-height:100vh">
+  <div class="check">✓</div>
+  <div class="section-tag" style="justify-content:center">Booking Confirmed!</div>
+  <h1 class="section-title" style="text-align:center">You're Going on an <em>Adventure</em></h1>
+  <div class="ref" *ngIf="ref">Booking Ref: <span>{{ ref }}</span></div>
+  <p style="color:var(--muted);margin:16px auto 32px;max-width:420px">Check your email for the booking voucher and detailed itinerary.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a class="btn-primary" routerLink="/traveler/dashboard">View My Bookings</a>
+    <a class="btn-outline" routerLink="/tours">Explore More Tours</a>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<app-loader [show]="isLoading"></app-loader>
+<div class="detail-page" *ngIf="tour && !isLoading">
+  <div class="detail-hero">
+    <img [src]="tour.thumbnailUrl" [alt]="tour.title">
+    <div class="detail-overlay">
+      <div class="section-tag">{{ tour.category }}</div>
+      <h1 class="section-title">{{ tour.title }}</h1>
+      <div class="meta-row">
+        <span>📍 {{ tour.destination }}</span>
+        <span>🗓 {{ tour.durationDays }} Days</span>
+        <span *ngIf="tour.rating">⭐ {{ tour.rating }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="detail-body section">
+    <div class="detail-grid">
+      <div class="detail-left">
+        <h3>About This Tour</h3>
+        <p>{{ tour.title }} — A premium travel experience to {{ tour.destination }}. Connect your .NET API to load the full tour description.</p>
+      </div>
+      <div class="detail-right">
+        <div class="booking-card">
+          <div class="bc-price">
+            <span class="bc-from">From</span>
+            <div class="bc-val"><span>$</span>{{ tour.price | number }}</div>
+            <span class="bc-per">per person</span>
+          </div>
+          <a class="btn-primary" style="width:100%;text-align:center;display:block;text-decoration:none" [routerLink]="['/booking', tour.id]">
+            Book This Tour →
+          </a>
+          <div class="bc-notes">
+            <div>✅ Free cancellation (48h before)</div>
+            <div>✅ Best price guarantee</div>
+            <div>✅ Instant confirmation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

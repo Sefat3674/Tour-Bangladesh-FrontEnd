@@ -1,0 +1,14 @@
+.db-layout { display:grid; grid-template-columns:240px 1fr; min-height:100vh; @media(max-width:900px){grid-template-columns:1fr;} }
+.db-sidebar { background:var(--navy2); border-right:1px solid var(--border); padding:24px 0 40px; position:sticky; top:0; height:100vh; overflow-y:auto; @media(max-width:900px){display:none;} }
+.db-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:300; letter-spacing:3px; color:var(--white); padding:28px 24px 20px; border-bottom:1px solid var(--border); margin-bottom:16px; span{color:var(--gold);} }
+.db-nav-title { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); padding:0 24px; margin-bottom:8px; }
+.nav-item { display:block; padding:10px 24px; font-size:13px; color:var(--muted); text-decoration:none; transition:all .15s;
+  &:hover, &.active { background:var(--gold-pale); color:var(--cream); border-left:2px solid var(--gold); padding-left:22px; } }
+.db-main { padding:48px; background:var(--navy); @media(max-width:900px){padding:100px 24px 40px;} }
+.db-greet { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--white); margin-bottom:32px; em{font-style:italic;color:var(--gold);} }
+.db-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(201,150,74,0.1); margin-bottom:40px; }
+.ds { background:var(--card); padding:28px; text-align:center; }
+.dn { font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:300; color:var(--white); line-height:1; }
+.dl { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+.db-sub { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:400; color:var(--white); margin-bottom:16px; }
+.db-table-wrap { background:var(--card); border:1px solid var(--border); overflow:hidden; }

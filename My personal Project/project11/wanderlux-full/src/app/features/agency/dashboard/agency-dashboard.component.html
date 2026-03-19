@@ -1,0 +1,49 @@
+<div class="auth-page">
+  <div class="dashboard-card">
+
+    <!-- Sidebar -->
+    <aside class="db-sidebar">
+      <div class="db-logo">Wander<span>Lux</span></div>
+      <div class="db-nav-title">Agency</div>
+
+      <a class="nav-item active" routerLink="/agency/dashboard">📊 Dashboard</a>
+      <a class="nav-item" routerLink="/agency/tours">✈️ My Packages</a>
+      <a class="nav-item" routerLink="/agency/bookings">📋 Bookings</a>
+      <a class="nav-item" routerLink="/tours">🌍 View Site</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="db-main">
+      <div class="auth-tag">Dashboard</div>
+
+      <h2>
+        Welcome,<br>
+        <em>{{ user()?.fullName }}</em>
+      </h2>
+
+      <div class="db-stats">
+        <div class="ds">
+          <div class="dn">{{ bookings.length }}</div>
+          <div class="dl">Bookings</div>
+        </div>
+
+        <div class="ds">
+          <div class="dn">${{ revenue }}</div>
+          <div class="dl">Revenue</div>
+        </div>
+
+        <div class="ds">
+          <div class="dn">4.9</div>
+          <div class="dl">Avg Rating</div>
+        </div>
+      </div>
+
+      <div class="empty-state" *ngIf="!isLoading && bookings.length===0">
+        No bookings yet.<br>
+        <a routerLink="/agency/tours">Create a tour package →</a>
+      </div>
+
+    </main>
+
+  </div>
+</div>

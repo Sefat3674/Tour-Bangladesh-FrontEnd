@@ -1,0 +1,24 @@
+<div class="tour-card" (click)="openDetail()">
+  <div class="tour-img">
+    <img [src]="tour.thumbnailUrl || 'assets/placeholder.jpg'" [alt]="tour.title" loading="lazy" />
+    <span class="tour-badge" [ngClass]="badgeClass" *ngIf="tour.badgeLabel">{{ tour.badgeLabel }}</span>
+    <button class="wishlist-btn" [class.active]="isWishlisted()" (click)="toggleWishlist($event)">
+      {{ isWishlisted() ? '♥' : '♡' }}
+    </button>
+  </div>
+  <div class="tour-body">
+    <div class="tour-location">📍 {{ tour.destination }}</div>
+    <div class="tour-name">{{ tour.title }}</div>
+    <div class="tour-meta">
+      <span>🗓 {{ tour.durationDays }} Days</span>
+      <span *ngIf="tour.rating">⭐ {{ tour.rating }}</span>
+    </div>
+    <div class="tour-footer">
+      <div class="tour-price">
+        <span class="price-from">From</span>
+        <div class="price-val"><span>$</span>{{ tour.price | number }}</div>
+      </div>
+      <button class="btn-outline btn-sm" (click)="book($event)">Book Now</button>
+    </div>
+  </div>
+</div>

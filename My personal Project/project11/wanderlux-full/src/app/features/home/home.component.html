@@ -1,0 +1,80 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Curated Travel Experiences</div>
+    <h1>Explore Bangladesh<br>in <em>Luxury &</em><br>Comfort</h1>
+    <p>Handcrafted tour packages to the world's most breathtaking destinations. Every detail perfected.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" routerLink="/tours">Explore Packages</a>
+      <a class="btn-ghost" routerLink="/tours">Browse All Tours →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hs"><div class="hn">12<span>k+</span></div><div class="hl-t">Happy Travelers</div></div>
+    <div class="hs"><div class="hn">85<span>+</span></div><div class="hl-t">Destinations</div></div>
+    <div class="hs"><div class="hn">4.<span>9</span></div><div class="hl-t">Avg Rating</div></div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<div class="search-wrap">
+  <div class="search-box">
+    <div class="sf"><div class="sl">Destination</div><input type="text" placeholder="Where to go?" class="si"></div>
+    <div class="sf"><div class="sl">Travel Date</div><input type="date" class="si"></div>
+    <div class="sf"><div class="sl">Duration</div><input type="text" placeholder="Days?" class="si"></div>
+    <div class="sf"><div class="sl">Travelers</div><input type="number" placeholder="2" min="1" class="si"></div>
+    <a class="btn-primary sb" routerLink="/tours">Search Tours</a>
+  </div>
+</div>
+
+<!-- TOURS -->
+<section class="section tours-section">
+  <div class="tours-header">
+    <div>
+      <div class="section-tag">Handpicked For You</div>
+      <h2 class="section-title">Popular <em>Tour</em><br>Packages</h2>
+    </div>
+    <div class="cat-tabs">
+      <button *ngFor="let c of categories" class="cat-tab" [class.active]="active === c" (click)="setCategory(c)">{{ c }}</button>
+    </div>
+  </div>
+
+  <app-loader [show]="isLoading" message="Loading tours..."></app-loader>
+
+  <div class="tours-grid" *ngIf="!isLoading">
+    <app-tour-card *ngFor="let t of tours" [tour]="t"></app-tour-card>
+  </div>
+
+  <div class="empty" *ngIf="!isLoading && tours.length === 0">
+    <p>No tours found. <a routerLink="/tours" style="color:var(--gold)">Try all tours →</a></p>
+  </div>
+
+  <div style="text-align:center;margin-top:48px">
+    <a class="btn-ghost" routerLink="/tours">View All 85+ Packages →</a>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why-section">
+  <div class="section-tag">Why Choose Us</div>
+  <h2 class="section-title">Travel Smarter, <em>Live Better</em></h2>
+  <div class="why-grid">
+    <div class="why-item"><div class="wi">🛡️</div><div class="wt">100% Safe & Secure</div><div class="wd">Full insurance and 24/7 emergency support on every trip.</div></div>
+    <div class="why-item"><div class="wi">✨</div><div class="wt">Luxury Handpicked</div><div class="wd">Every hotel, guide and activity personally vetted by our team.</div></div>
+    <div class="why-item"><div class="wi">💳</div><div class="wt">Flexible Payment</div><div class="wd">Book with 20% deposit. Pay in easy installments.</div></div>
+    <div class="why-item"><div class="wi">🎯</div><div class="wt">Personalized Tours</div><div class="wd">Custom itineraries built exactly to your budget and wishes.</div></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="nl-section">
+  <div class="section-tag" style="justify-content:center">Stay Updated</div>
+  <h2 class="section-title" style="text-align:center">Get <em>Exclusive</em> Deals</h2>
+  <div class="nl-form">
+    <input type="email" placeholder="Your email address" class="nl-input">
+    <button class="btn-primary">Subscribe</button>
+  </div>
+</div>
