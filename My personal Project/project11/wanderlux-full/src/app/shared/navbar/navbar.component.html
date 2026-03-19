@@ -1,0 +1,25 @@
+<nav [class.scrolled]="isScrolled">
+  <a class="logo" routerLink="/">Tour<span>Bangladesh</span></a>
+
+  <ul class="nav-links" [class.open]="mobileOpen">
+    <li><a routerLink="/tours"   routerLinkActive="active">Tours</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+  </ul>
+
+  <div class="nav-cta" *ngIf="!user()">
+    <a class="btn-outline" routerLink="/auth/login">Sign In</a>
+    <a class="btn-primary" routerLink="/tours">Book Now</a>
+  </div>
+
+  <div class="user-menu" *ngIf="user()">
+    <a [routerLink]="dashRoute" class="user-link">
+      <div class="avatar sm">{{ user()?.fullName?.charAt(0) ?? 'U' }}</div>
+      <span class="user-name">{{ user()?.fullName }}</span>
+    </a>
+    <button class="btn-outline btn-sm" (click)="logout()">Logout</button>
+  </div>
+
+  <button class="nav-toggle" (click)="mobileOpen = !mobileOpen" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>

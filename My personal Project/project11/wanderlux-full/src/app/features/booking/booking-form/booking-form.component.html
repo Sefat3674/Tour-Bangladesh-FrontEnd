@@ -1,0 +1,40 @@
+<app-loader [show]="!tour && !isLoading"></app-loader>
+<div class="book-page section" *ngIf="tour">
+  <div class="book-grid">
+    <div>
+      <div class="section-tag">Reserve Your Spot</div>
+      <h2 class="section-title">Book <em>This Tour</em></h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Travel Date</label>
+            <input class="form-input" type="date" formControlName="travelDate">
+          </div>
+          <div class="form-group">
+            <label class="form-label">No. of Travelers</label>
+            <input class="form-input" type="number" formControlName="numTravelers" min="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Special Requests</label>
+          <textarea class="form-input" formControlName="specialRequest" placeholder="Dietary requirements, special occasions..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center" type="submit" [disabled]="isLoading || form.invalid">
+          {{ isLoading ? 'Processing...' : 'Confirm & Pay $' + (totalPrice | number) }}
+        </button>
+      </form>
+    </div>
+    <div class="tour-card-summary">
+      <img [src]="tour.thumbnailUrl" [alt]="tour.title">
+      <div class="summary-info">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px">{{ tour.destination }}</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--white);margin-bottom:10px">{{ tour.title }}</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:16px">🗓 {{ tour.durationDays }} Days</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:14px">
+          <span style="color:var(--muted);font-size:13px">Total</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--white)">${{ totalPrice | number }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

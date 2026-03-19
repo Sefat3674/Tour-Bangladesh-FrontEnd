@@ -1,0 +1,61 @@
+<div class="db-layout">
+  <aside class="db-sidebar">
+    <div class="db-logo">Travelar<span></span></div>
+    <div class="db-nav-title">Traveler</div>
+    <a class="nav-item active" routerLink="/traveler/dashboard">📊 Overview</a>
+    <a class="nav-item" routerLink="/tours">✈️ Browse Tours</a>
+  </aside>
+  <main class="db-main">
+    <h2 class="db-greet">Good morning, <em>{{ user()?.fullName }}</em></h2>
+
+    <div class="db-stats">
+      <div class="ds">
+        <div class="dn">{{ bookings.length }}</div>
+        <div class="dl">Total Bookings</div>
+      </div>
+      <div class="ds">
+        <div class="dn">{{ confirmedCount }}</div>
+        <div class="dl">Confirmed</div>
+      </div>
+      <div class="ds">
+        <div class="dn">{{ completedCount }}</div>
+        <div class="dl">Trips Taken</div>
+      </div>
+    </div>
+
+    <h3 class="db-sub">Recent Bookings</h3>
+    <div class="db-table-wrap">
+      <table class="data-table" *ngIf="bookings.length > 0">
+        <thead>
+          <tr>
+            <th>Ref</th>
+            <th>Tour</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of bookings">
+            <td style="font-family:'DM Mono',monospace;color:var(--gold);font-size:12px">
+              {{ b.bookingRef }}
+            </td>
+            <td>{{ b.tourTitle || 'Tour #' + b.tourId }}</td>
+            <td style="color:var(--muted)">{{ b.travelDate | date:'MMM dd, yyyy' }}</td>
+            <td style="font-family:'Cormorant Garamond',serif;font-size:18px">
+              ${{ b.totalAmount | number }}
+            </td>
+            <td>
+              <span class="badge" [ngClass]="badgeClass(b.status)">{{ b.status }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:40px;text-align:center;color:var(--muted)"
+           *ngIf="!isLoading && bookings.length === 0">
+        No bookings yet.
+        <a routerLink="/tours" style="color:var(--gold)">Browse tours →</a>
+      </div>
+    </div>
+  </main>
+</div>

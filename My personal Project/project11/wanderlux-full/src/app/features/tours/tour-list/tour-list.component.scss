@@ -1,0 +1,11 @@
+.page { padding-top: 80px; }
+.page-head { padding-bottom: 0; }
+.layout { display:grid; grid-template-columns:250px 1fr; gap:32px; padding:40px 60px 80px; @media(max-width:900px){grid-template-columns:1fr;padding:24px;} }
+.filters { background:var(--card); border:1px solid var(--border); padding:24px; height:fit-content; position:sticky; top:90px;
+  h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--white); margin-bottom:24px; } }
+.fg { margin-bottom:20px; }
+.cat-list { display:flex; flex-direction:column; gap:4px;
+  button { background:transparent; border:1px solid var(--border); color:var(--muted); padding:8px 12px; font-size:12px; text-align:left; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .2s;
+    &.active, &:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-pale); } } }
+.main { min-height:400px; }
+.empty { text-align:center; padding:60px; color:var(--muted); }

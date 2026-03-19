@@ -1,0 +1,5 @@
+.book-page { padding-top: 120px; }
+.book-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:start; @media(max-width:768px){grid-template-columns:1fr;} }
+.tour-card-summary { background:var(--card); border:1px solid var(--border); overflow:hidden; position:sticky; top:90px;
+  img { width:100%; height:220px; object-fit:cover; } }
+.summary-info { padding:24px; }

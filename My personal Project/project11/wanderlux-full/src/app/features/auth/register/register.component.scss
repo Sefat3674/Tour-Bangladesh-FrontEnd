@@ -1,0 +1,5 @@
+.auth-page { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:100px 24px 40px; }
+.auth-card { background:var(--navy2); border:1px solid var(--border2); padding:48px; max-width:460px; width:100%; }
+.auth-tag  { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+h2 { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:300; color:var(--white); margin-bottom:32px; em{font-style:italic;color:var(--gold);} }
+.auth-switch { text-align:center; margin-top:20px; font-size:13px; color:var(--muted); a{color:var(--gold);text-decoration:none;} }
